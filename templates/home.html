@@ -1,0 +1,335 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Chatbot</title>
+</head>
+<body>
+    <h1>Career Chatbot</h1>
+    <form method="POST" action="/">
+        <label for="user_query">Enter User Query:</label>
+        <input type="text" id="user_query" name="user_query" required>
+        <button type="submit">Generate Response</button>
+    </form>
+    {% if user_query %}
+        <p>User Query: {{ user_query }}</p>
+        <p>Generated Output: {{ generated_output }}</p>
+    {% endif %}
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Recommender</title>
+    <!-- <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', san-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  /* background: #222; */
+  /* background-image: url('abc.jpg') center center fixed; */
+  /* background-size: cover; */
+}
+
+.inputBox {
+  position: relative;
+  width: 500px;
+}
+
+.inputBox input {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  padding: 10px 0 5px;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px 0 5px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  pointer-events: none;
+  letter-spacing: 0.1em;
+  transition: 0.5s;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+  color: #2196f3;
+  transform: translateY(-16px);
+  font-size: 0.65em;
+}
+
+.inputBox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.inputBox i::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff1b69, #ff0, #2196f3, #9c27b0, #ff1b69);
+  animation: animate 2s linear infinite;
+  transition: 0.5s;
+}
+
+.inputBox input:valid~i::before,
+.inputBox input:focus~i::before {
+  left: 0;
+}
+
+.output-box {
+  background-color: black;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px auto;  /* Center the box horizontally */
+  max-width: 600px;  /* Set a maximum width for the box */
+}
+
+.output-box h2 {
+  color: #007bff;
+}
+
+.button1 {
+  background-color: #7F27FF;
+  border: none;
+  width: 500px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -0%;
+  }
+
+  100% {
+    background-position-x: 250px;
+  }
+}
+
+    </style> -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', san-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  /* background: #222; */
+  /* background-image: url('abc.jpg') center center fixed; */
+  /* background-size: cover; */
+}
+
+.input {
+  width: 600px;
+  background-color: #1a1a1a;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+}
+
+.input:focus {
+  animation: rotateShadow 2s infinite linear;
+}
+
+.output-box {
+  background-color: black;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px auto;  /* Center the box horizontally */
+  max-width: 600px;  /* Set a maximum width for the box */
+}
+
+.output-box h2 {
+  color: #007bff;
+}
+
+.button1 {
+  background-color: #7F27FF;
+  border: none;
+  width: 600px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+@keyframes rotateShadow {
+  0% {
+    box-shadow: -2px -2px 0px 0px #aa00ff, 2px 2px 0px 0px #3700ff;
+  }
+  25% {
+    box-shadow: -2px 2px 0px 0px #aa00ff, 2px -2px 0px 0px #3700ff;
+  }
+  50% {
+    box-shadow: 2px 2px 0px 0px #aa00ff, -2px -2px 0px 0px #3700ff;
+  }
+  75% {
+    box-shadow: 2px -2px 0px 0px #aa00ff, -2px 2px 0px 0px #3700ff;
+  }
+  100% {
+    box-shadow: -2px -2px 0px 0px #aa00ff, 2px 2px 0px 0px #3700ff;
+  }
+}
+</style>
+</head>
+<body style="background-image: linear-gradient(45deg, transparent 0%, transparent 46%,rgba(114, 114, 114,0.06) 46%, rgba(114, 114, 114,0.06) 70%,transparent 70%, transparent 100%),linear-gradient(135deg, transparent 0%, transparent 59%,rgba(114, 114, 114,0.06) 59%, rgba(114, 114, 114,0.06) 91%,transparent 91%, transparent 100%),linear-gradient(0deg, transparent 0%, transparent 15%,rgba(114, 114, 114,0.06) 15%, rgba(114, 114, 114,0.06) 40%,transparent 40%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));">
+  <h1 style="color: #59D5E0; align-items: center; justify-content: center;">CareerCraft: Your AI Career Navigator</h1>
+  <!-- <p class="changing-text"></p> -->
+    <!-- <form action="/" method="post">
+      <div class="inputBox">
+        <input type="text" id="interests" name="interests" required>
+        <span for="interests">Interests:</span>
+        <i></i>
+      </div>
+
+        <div class="inputBox">
+        <input type="text" id="skills" name="skills" required>
+        <span for="skills">Skills:</span>
+        <i></i>
+      </div>
+
+
+      <div class="inputBox">
+        <input type="text" id="degree" name="degree" required>
+        <span for="degree">Degree:</span>
+        <i></i>
+      </div>
+
+      <div class="inputBox">
+        <input type="text" id="working" name="working" required>
+        <span for="working">Working:</span>
+        <i></i>
+      </div>
+      
+      <div class="inputBox">
+        <input type="text" id="specialization" name="specialization" required>
+        <span for="specialization">Specialization:</span>
+        <i></i>
+      </div>
+
+      <div class="inputBox">
+        <input type="text" id="percentage" name="percentage" required>
+        <span for="percentage">Percentage:</span>
+        <i></i>
+      </div>
+
+      <div class="inputBox">
+        <input type="text" id="certifications" name="certifications" required>
+        <span for="certifications">Certifications:</span>
+        <i></i>
+      </div>
+
+
+        <br>
+        <div>
+          <input class="button1 fa-solid fa-arrow-right" type="submit" value="Predict ➡️">
+        </div>
+    </form> -->
+      <form action="/" method="post">
+        <div>
+          <input type="text" id="interests" name="interests" class="input" required placeholder="Interests" />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="skills" name="skills" class="input" placeholder="Skills" required />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="degree" name="degree" class="input" required placeholder="Degree" />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="working" name="working" class="input" required placeholder="Working" />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="specialization" name="specialization" class="input" required placeholder="Specialization" />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="percentage" name="percentage" class="input" required placeholder="Percentage" />
+          <i></i>
+        </div><br>
+
+        <div>
+          <input type="text" id="certifications" name="certifications" class="input" required placeholder="Certifications" />
+          <i></i>
+        </div><br>
+        
+        <div>
+          <input class="button1 fa-solid fa-arrow-right" type="submit" value="Predict ➡️">
+        </div>
+        </form>
+    {% if user_query %}
+        <!-- <h2>User Input:</h2>
+        <p>{{ user_query }}</p> -->
+        <div class="output-box">
+        <h2>Suggested Career Path:</h2>
+        <p>{{ generated_output }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
