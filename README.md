@@ -28,7 +28,7 @@ The Career Recommendation Chatbot holds significant potential in real-world scen
 
 ## Key Details
 
-### Career Recommendation Dataset
+### Career Recommendation Dataset.
 The fine-tuning of the LaMDA 2 model relies on a comprehensive career recommendation dataset. This dataset contains a wealth of information, including user interests, skills, educational backgrounds, and corresponding career trajectories, enabling the chatbot to provide informed and relevant recommendations.
 
 ### Gradient API
@@ -40,3 +40,9 @@ To mitigate the risk of overloading the model and ensure efficient training, the
 ## Closing
 
 The Career Recommendation Chatbot represents a cutting-edge solution in the field of AI-driven career guidance. By harnessing the power of advanced machine learning techniques and leveraging rich datasets, this chatbot empowers individuals to make informed decisions about their professional futures. Whether assisting students in choosing academic paths, guiding professionals in career transitions, or providing insights to job seekers, the chatbot stands as a valuable ally in navigating the complex landscape of career choices and opportunities.
+
+## References
+
+- [Gradient AI](https://gradient.ai/)
+- [Gradient AI Docs](https://docs.gradient.ai/)
+- [Career Recommendation Dataset Link](https://www.kaggle.com/datasets/breejeshdhar/career-recommendation-dataset)
