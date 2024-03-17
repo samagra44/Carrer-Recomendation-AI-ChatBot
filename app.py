@@ -6,8 +6,8 @@ import csv
 app = Flask(__name__)
 
 # Set the Gradient environment variables
-os.environ['GRADIENT_ACCESS_TOKEN'] = "hChzE2VjNTevcEtv8W02c868Gj2KtkVg"
-os.environ['GRADIENT_WORKSPACE_ID'] = "4516658f-2630-4114-af57-6e73c033ab58_workspace"
+os.environ['GRADIENT_ACCESS_TOKEN'] = "GRADIENT_AI_ACCESS_TOKEN"
+os.environ['GRADIENT_WORKSPACE_ID'] = "GRADIENT_AI_WORKSPACE_ID"
 
 # Define the Dataset Path
 carrer_dataset_path = "truncated_career_recommender_dataset.csv"
