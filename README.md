@@ -37,6 +37,12 @@ To access and fine-tune the LaMDA 2 model effectively, the project leverages the
 ### Chunk Size
 To mitigate the risk of overloading the model and ensure efficient training, the dataset is divided into manageable chunks. This approach allows for better control over the training process, enabling the chatbot to learn from diverse data samples while maintaining performance and stability.
 
+## Output
+
+<p align="center">
+<img src="https://github.com/samagra44/Carrer-Recomendation-AI-ChatBot/assets/77968722/cccc91f8-e562-488b-bcf8-c7933346b4a2" width=700 height=300 alt="animated"/>
+</p>
+
 ## Closing
 
 The Career Recommendation Chatbot represents a cutting-edge solution in the field of AI-driven career guidance. By harnessing the power of advanced machine learning techniques and leveraging rich datasets, this chatbot empowers individuals to make informed decisions about their professional futures. Whether assisting students in choosing academic paths, guiding professionals in career transitions, or providing insights to job seekers, the chatbot stands as a valuable ally in navigating the complex landscape of career choices and opportunities.
